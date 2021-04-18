@@ -1,0 +1,220 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script>
+            window.onload = function() {
+            
+            var chart = new CanvasJS.Chart("chartContainer", {
+                animationEnabled: true,
+                backgroundColor: "darkgoldenrod",
+                title: {
+                    text: "Hourly Average CPU Utilization"
+                },
+                axisX: {
+                    title: "Time"
+                },
+                axisY: {
+                    title: "Percentage",
+                    suffix: "%",
+                    includeZero: true
+                },
+                data: [{
+                    type: "line",
+                    name: "CPU Utilization",
+                    connectNullData: true,
+                    //nullDataLineDashType: "solid",
+                    xValueType: "dateTime",
+                    xValueFormatString: "DD MMM hh:mm TT",
+                    yValueFormatString: "#,##0.##\"%\"",
+                    dataPoints: [
+                        { x: 1501048673000, y: 35.939 },
+                        { x: 1501052273000, y: 40.896 },
+                        { x: 1501055873000, y: 56.625 },
+                        { x: 1501059473000, y: 26.003 },
+                        { x: 1501063073000, y: 20.376 },
+                        { x: 1501066673000, y: 19.774 },
+                        { x: 1501070273000, y: 23.508 },
+                        { x: 1501073873000, y: 18.577 },
+                        { x: 1501077473000, y: 15.918 },
+                        { x: 1501081073000, y: null }, // Null Data
+                        { x: 1501084673000, y: 10.314 },
+                        { x: 1501088273000, y: 10.574 },
+                        { x: 1501091873000, y: 14.422 },
+                        { x: 1501095473000, y: 18.576 },
+                        { x: 1501099073000, y: 22.342 },
+                        { x: 1501102673000, y: 22.836 },
+                        { x: 1501106273000, y: 23.220 },
+                        { x: 1501109873000, y: 23.594 },
+                        { x: 1501113473000, y: 24.596 },
+                        { x: 1501117073000, y: 31.947 },
+                        { x: 1501120673000, y: 31.142 }
+                    ]
+                }]
+            });
+            chart.render();
+            
+            var chart2 = new CanvasJS.Chart("chartContainer2", {
+                animationEnabled: true,
+                backgroundColor: "darkgreen",
+                title:{
+                    text: "Cumulative App Downloads on iTunes and Play Store"
+                },
+                axisY :{
+                    valueFormatString: "#0,.",
+                    suffix: "k"
+                },
+                axisX: {
+                    title: "Months After Launch"
+                },
+                toolTip: {
+                    shared: true
+                },
+                data: [{        
+                    type: "stackedArea",
+                    showInLegend: true,
+                    toolTipContent: "<span style=\"color:#4F81BC\"><strong>{name}: </strong></span> {y}",
+                    name: "iOS",
+                    dataPoints: [
+                    { x: 1, y: 3000 },
+                    { x: 2, y: 7000 },
+                    { x: 3, y: 10000 },
+                    { x: 4, y: 14000 },
+                    { x: 5, y: 23000 },
+                    { x: 6, y: 31000 },
+                    { x: 7, y: 42000 },
+                    { x: 8, y: 56000 },
+                    { x: 9, y: 64000 },
+                    { x: 10, y: 81000 },
+                    { x: 11, y: 105000 }
+                    ]
+                },
+                {        
+                    type: "stackedArea",  
+                    name: "Android",
+                    toolTipContent: "<span style=\"color:#C0504E\"><strong>{name}: </strong></span> {y}<br><b>Total:<b> #total",
+                    showInLegend: true,
+                    dataPoints: [
+                    { x: 4, y: 4000 },
+                    { x: 5, y: 6000 },
+                    { x: 6, y: 9000 },
+                    { x: 7,y: 14000 },
+                    { x: 8,y: 21000 },
+                    { x: 9, y: 31000 },
+                    { x: 10, y: 46000 },
+                    { x: 11, y: 61000 }   
+                    ]
+                }]
+            });
+            chart2.render();
+            
+            var chart3 = new CanvasJS.Chart("chartContainer3", {
+            	animationEnabled: true,
+                backgroundColor: "grey",
+            	title: {
+            		text: "Desktop Search Engine Market Share - 2016"
+            	},
+            	data: [{
+            		type: "pie",
+            		startAngle: 240,
+            		yValueFormatString: "##0.00\"%\"",
+            		indexLabel: "{label} {y}",
+            		dataPoints: [
+            			{y: 79.45, label: "Google"},
+            			{y: 7.31, label: "Bing"},
+            			{y: 7.06, label: "Baidu"},
+            			{y: 4.91, label: "Yahoo"},
+            			{y: 1.26, label: "Others"}
+            		]
+            	}]
+            });
+            chart3.render();
+
+            }
+
+            
+        </script>
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+        <style>
+            a:hover {
+                border-bottom: 1px solid;;
+            }
+            </style>
+    </head>
+    <body style="background-color:#3a4050; color: white">
+
+        <div class="row" style="margin-left: 30px; color: white; padding-top: 10px; position: fixed;">
+            <h1>Dashboard</h1>
+        </div>
+
+        <div class="row" style="position: fixed; border: 5px red; height: 90%; background-color: sandybrown; border-radius: 12px; margin-top: 80px; margin-left: 30px;padding-right: 60px;">
+            <nav class="col-md-2"> 
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item"><a class="nav-link active" style="background-color: sandybrown; text-align: left; color: white; cursor: pointer;"><h4>Home</h4></a></li>
+                        <li class="nav-item"><a class="nav-link active" style="background-color: sandybrown; text-align: left; color: white; cursor: pointer"><h4>About</h4></a></li>
+                        <li class="nav-item"><a class="nav-link active" style="background-color: sandybrown; text-align: left; color: white; cursor: pointer"><h4>Graphs</h4></a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <div class="row justify-content-around" style="margin-left: 100px;">
+            <div class="col" style="border-radius: 12px; background-color: rgb(44, 49, 44); margin-right: 30px; margin-left: 150px; margin-bottom: 30px; margin-top: 80px;">
+                <h3>First header</h3>
+                <p>Bootstrap, originally named Twitter Blueprint, was developed by Mark Otto and Jacob Thornton at Twitter as a framework to encourage consistency across internal tools. Before Bootstrap, various libraries were used for interface development, which led to inconsistencies and a high maintenance burden. According to Twitter developer Mark Otto:<br><br>
+                    A super small group of developers and I got together to design and build a new internal tool and saw an opportunity to do something more. Through that process, we saw ourselves build something much more substantial than another internal tool. Months later, we ended up with an early version of Bootstrap as a way to document and share common design patterns and assets within the company.</p>
+            </div>
+        </div>
+        
+        <div style="margin-left: 100px;">
+            <div class="row justify-content-around" style="margin-bottom: 30px;">    
+                <div class="col" style="border-radius: 12px; background-color: rgb(44, 49, 44); margin-right: 10px; margin-left: 165px; padding-bottom: 10px;">
+                    <h8>Smool text here hihihi</h8>
+                    <h4>Hello there bootstrap</h4>
+                    <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+                    
+                </div>
+                <div class="col" style="border-radius: 12px; background-color: rgb(44, 49, 44); margin-right: 10px; margin-left: 10px;">
+                    <h8>Smool text here hihihi</h8>
+                    <h4>second column oh shit</h4>
+                    <div id="chartContainer2" style="height: 370px; width: 100%;"></div>
+                </div>
+                <div class="col" style="border-radius: 12px; background-color: rgb(44, 49, 44); margin-right: 30px; margin-left: 10px; padding-bottom: 10px;">
+                    <h8>Smool text here hihihi</h8>
+                    <h4>third column for nice moments!</h4>
+                    <div id="chartContainer3" style="height: 370px; width: 100%;"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row justify-content-around" style="margin-right: 10px; margin-left: 195px; margin-bottom: 30px;"> 
+            <div class="col" style="border-radius: 12px; background-color: rgb(44, 49, 44); margin-right: 10px; margin-left: 55px; color: white;">
+                <h4 style="text-align: center;">Left side</h4>
+                <tr>
+                    <th>
+                        <h5>Header</h5>
+                        <p>A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of sentences that supports one central, unified idea. Paragraphs add one idea at a time to your broader argument.</p>
+                    </th>
+                </tr>
+            </div>
+            
+            <div class="col" style="border-radius: 12px; background-color: rgb(44, 49, 44); margin-right: 10px; margin-left: 10px; color: white;">
+                <h4 style="text-align: center;">Right side</h4>
+                <tr>
+                    <th>
+                        <h5>Header 2</h5>
+                        <p>In academic writing, most paragraphs include at least three sentences, though rarely more than ten. So, how many paragraphs are enough, and how many are too many? For historical writing, there should be between four and six paragraphs in a two-page paper, or six and twelve in a five-page essay.</p>
+                    </th>
+                </tr>
+            </div>
+        </div>
+
+        <div class="row justify-content-around" style="margin-left: 100px;">
+            <div class="col" style="border-radius: 12px; background-color: rgb(44, 49, 44); margin-right: 30px; margin-left: 150px; margin-bottom: 30px;">
+                <h3>Final header</h3>
+                <p>Bootstrap is a HTML, CSS & JS Library that focuses on simplifying the development of informative web pages (as opposed to web apps). The primary purpose of adding it to a web project is to apply Bootstrap's choices of color, size, font and layout to that project. As such, the primary factor is whether the developers in charge find those choices to their liking. Once added to a project, Bootstrap provides basic style definitions for all HTML elements. The result is a uniform appearance for prose, tables and form elements across web browsers. In addition, developers can take advantage of CSS classes defined in Bootstrap to further customize the appearance of their contents. For example, Bootstrap has provisioned for light- and dark-colored tables, page headings, more prominent pull quotes, and text with a highlight.</p>
+            </div>
+        </div>
+
+    </body>
+</html>
